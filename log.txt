@@ -1,0 +1,35 @@
+commit e2ba4be6b29718f100654a348fc4b398acbf9ffe
+Merge: da84d06 4e85ea6
+Author: alexeykrasich <83491125+alexeykrasich@users.noreply.github.com>
+Date:   Wed Jun 15 18:13:09 2022 +0300
+
+    Merge pull request #2 from alexeykrasich/dev
+    
+    Dev
+
+commit 4e85ea6d9df8e25a8e793a6781c6547a0c309380
+Merge: aaa1fd2 8b0acd3
+Author: alexeykrasich <83491125+alexeykrasich@users.noreply.github.com>
+Date:   Wed Jun 15 18:09:14 2022 +0300
+
+    Merge pull request #1 from alexeykrasich/alexeykrasich-new_feature
+    
+    Added root README.md
+
+commit 8b0acd352db939eed718050509941bf078cc868e
+Author: Alexey Krasichonak <alexey.krasich@gmail.com>
+Date:   Wed Jun 15 07:57:44 2022 -0700
+
+    Added root README.md
+
+commit aaa1fd26a396f1a657ae8466005ae59e352784c3
+Author: Alexey Krasichonak <alexey.krasich@gmail.com>
+Date:   Wed Jun 15 06:11:44 2022 -0700
+
+    Test File Dev Branch
+
+commit da84d062a7b2c94eee40f3581638d0ea4156a373
+Author: Alexey Krasichonak <alexey.krasich@gmail.com>
+Date:   Wed Jun 15 06:01:34 2022 -0700
+
+    New File README.md
