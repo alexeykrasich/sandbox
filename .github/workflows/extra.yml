@@ -14,6 +14,8 @@ jobs:
 
   First_job:
     runs-on:  ubuntu-latest
+    env:
+      DEPLOY_VER : "$GITHUB_SHA"
     
     steps: 
     
@@ -26,7 +28,7 @@ jobs:
         run: cat log.txt
         
       - name: Print message
-        run: echo "$GITHUB_SHA Hello from $DEPLOY_VER commit"
+        run: echo "Hello from $DEPLOY_VER commit"
 
           
   Second_job:
@@ -46,4 +48,4 @@ jobs:
           DAY__OF_THE_MONTH : 28
           
       - name: Day of week
-        run: echo "My favorite day of week is $FAVORITE_DAY_OF_WEEK1"
+        run: echo "My favorite day of week is ${{ secrets.FAVORITE_DAY_OF_WEEK }}"
