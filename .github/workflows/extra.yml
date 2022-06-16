@@ -1,6 +1,6 @@
 name: First_action
 env:
-  DEPLOY_VER : "$GITHUB_SHA"
+  DEPLOY_VER : "${{ env.GITHUB_SHA }}"
   YEAR       : 2016
   FAVORITE_DAY_OF_WEEK1 : ${{ secrets.FAVORITE_DAY_OF_WEEK }}
   
@@ -14,8 +14,6 @@ jobs:
 
   First_job:
     runs-on:  ubuntu-latest
-    env:
-      DEPLOY_VER : "$GITHUB_SHA"
     
     steps: 
     
