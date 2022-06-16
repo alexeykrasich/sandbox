@@ -23,7 +23,7 @@ jobs:
         run: ls -la
         
       - name: Content of the log.txt file 
-        run: cat log.txt
+        run: cat ./Task1/log.txt
         
       - name: Print message
         run: echo "Hello from $DEPLOY_VER commit"
