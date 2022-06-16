@@ -1,6 +1,6 @@
 name: First_action
 env:
-  DEPLOY_VER : "$GITHUB_SHA"
+  DEPLOY_VER : $GITHUB_SHA
   YEAR       : "2016"
 
 on:
