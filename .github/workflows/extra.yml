@@ -1,11 +1,13 @@
 name: First_action
 env:
   DEPLOY_VER : $GITHUB_SHA
-  YEAR       : "2016"
-
+  YEAR       : 2016
+  FAVORITE_DAY_OF_WEEK1 : ${{ secrets.FAVORITE_DAY_OF_WEEK }}
+  
 on:
-
-  workflow_dispatch:
+  push:
+    branches:
+      - master
 
 
 jobs:
@@ -44,4 +46,4 @@ jobs:
           DAY__OF_THE_MONTH : 28
           
       - name: Day of week
-        run: echo "My favorite day of week is $FAVORITE_DAY_OF_WEEK"
+        run: echo "My favorite day of week is $FAVORITE_DAY_OF_WEEK1"
