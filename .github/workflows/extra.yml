@@ -1,0 +1,44 @@
+name: First_action
+env:
+  DEPLOY_VER : "$GITHUB_SHA"
+  YEAR       : "2016"
+
+on:
+
+  workflow_dispatch:
+
+
+jobs:
+
+  First_job:
+    runs-on:  ubuntu-latest
+    
+    steps: 
+    
+      - uses: actions/checkout@v3
+
+      - name: The list of files/directories in my github repository
+        run: ls -la
+        
+      - name: Content of the log.txt file 
+        run: cat log.txt
+        
+      - name: Print message
+        run: echo "Hello from $DEPLOY_VER commit"
+
+          
+  Second_job:
+    runs-on:  ubuntu-latest
+    needs: First_job
+    env:
+      MONTH : "desember"
+    steps:
+      
+      - name: Date
+        run: |
+          date
+          echo "Day - $DAY__OF_THE_MONTH;"
+          echo "Month - $MONTH;"
+          echo "Year - $YEAR."
+        env: 
+          DAY__OF_THE_MONTH : 28
