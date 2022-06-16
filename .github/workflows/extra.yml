@@ -1,6 +1,6 @@
 name: First_action
 env:
-  DEPLOY_VER : $GITHUB_SHA
+  DEPLOY_VER : "v $GITHUB_SHA"
   YEAR       : 2016
   FAVORITE_DAY_OF_WEEK1 : ${{ secrets.FAVORITE_DAY_OF_WEEK }}
   
