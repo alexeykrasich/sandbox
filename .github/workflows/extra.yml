@@ -1,6 +1,6 @@
 name: First_action
 env:
-  DEPLOY_VER : "v $GITHUB_SHA"
+  DEPLOY_VER : "$GITHUB_SHA"
   YEAR       : 2016
   FAVORITE_DAY_OF_WEEK1 : ${{ secrets.FAVORITE_DAY_OF_WEEK }}
   
@@ -26,7 +26,7 @@ jobs:
         run: cat log.txt
         
       - name: Print message
-        run: echo "Hello from $DEPLOY_VER commit"
+        run: echo "$GITHUB_SHA Hello from $DEPLOY_VER commit"
 
           
   Second_job:
