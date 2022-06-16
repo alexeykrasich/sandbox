@@ -42,3 +42,6 @@ jobs:
           echo "Year - $YEAR."
         env: 
           DAY__OF_THE_MONTH : 28
+          
+      - name: Day of week
+        run: echo "My favorite day of week is $FAVORITE_DAY_OF_WEEK"
