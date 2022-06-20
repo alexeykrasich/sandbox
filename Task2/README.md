@@ -29,16 +29,16 @@ Run steps 3-6 with instances created in different VPC. (connectivity must be bot
 
 Использовал VPC сервис в консоли, создал новую VPC CIDR 10.0.0.0/16 в том же регионе, публичную подсеть, включил автоматическое присвоение паблик айпи в новой сабнет, шлюз, прописал в роут тейбл 0.0.0.0/0 на шлюз в инет, 172.31.0.0/20 на соседнюю VPC, в роут тейбл соседней VPC прописал айпишники новой VPC, отправил тоже на пиринг, предворительно создав Peering connection между ними, создал еще один сервер в новой VPC, пинг работает в обе стороны на внутренних IP между VPC, как и ssh
 
-Write BASH script for installing web server (nginx/apache) and creating web pages with text “Hello World”, and information about OS version
-Run step.6 without “manual” EC2 SSH connection.
+<h3>Write BASH script for installing web server (nginx/apache) and creating web pages with text “Hello World”, and information about OS version
+Run step.6 without “manual” EC2 SSH connection.</h3>
 
 Использовал Bootstrapping в консоли ec2 при создании нового инстенса, для запуска скрипта для установки апаче и добавления страницы.
 http://16.16.24.68/
 
 <h3>EXTRA (optional optional):</h3>
 
-Make a screenshot only of your web page сontent from your browser.
+<h4>Make a screenshot only of your web page сontent from your browser.
 Create your S3 bucket and place your screenshot there.
-Make your screenshot visible on the internet for everyone and make sure it works.
+Make your screenshot visible on the internet for everyone and make sure it works.</h4>
 
 Создал бакет в S3 через консоль, закинул скрин, вклюючил ACL, дал доступ на чтение для всех: https://s3.eu-north-1.amazonaws.com/krasich.sandbox/Krasich.png
