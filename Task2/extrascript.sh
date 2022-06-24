@@ -8,7 +8,7 @@ DISTR_CENTOS=$(echo $RELEASE | grep entOS)
 #######Distr checking
 
 
-if [ "$DISTR_AMAZON" != "" ]; then
+if [[ ! -z "$DISTR_AMAZON" ]]; then
         echo "Your distr is Amazon Linux"
         yum -y install httpd && service httpd start ; echo "Hello World<br>$(uname -a)" > /var/www/html/index.html
 elif [ "$DISTR_UBUNTU" != "" ]; then
