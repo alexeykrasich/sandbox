@@ -11,7 +11,7 @@ HTML_INDEX="Hello World<br>$(cat /etc/*release)"
 
 #######Distr checking and start apache#########
 
-if [ "$DISTR_AMAZON" != "" ]; then
+if [[ ! -z "$DISTR_AMAZON" ]]; then
         echo "Your distr is Amazon Linux"
         yum -y install httpd && service httpd start ; echo $HTML_INDEX > /var/www/html/index.html
 elif [ "$DISTR_UBUNTU" != "" ]; then
