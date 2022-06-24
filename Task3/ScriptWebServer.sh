@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#########PARAMETERS
+#########PARAMETERS##############
 RELEASE=$(cat /etc/*release)
 DISTR_AMAZON=$(echo $RELEASE | grep mazon)
 DISTR_UBUNTU=$(echo $RELEASE | grep buntu)
@@ -8,8 +8,8 @@ DISTR_CENTOS=$(echo $RELEASE | grep entOS)
 
 HTML_INDEX="Hello World<br>$(cat /etc/*release)"
 
-#######Distr checking
 
+#######Distr checking and start apache#########
 
 if [ "$DISTR_AMAZON" != "" ]; then
         echo "Your distr is Amazon Linux"
@@ -23,3 +23,7 @@ elif [ "$DISTR_CENTOS" != "" ]; then
 else
         echo "Don't know your distr"
 fi
+
+####################INSTALL DOCKER######
+
+apt update && apt install apt-transport-https
