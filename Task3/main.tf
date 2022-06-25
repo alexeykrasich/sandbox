@@ -3,10 +3,12 @@ provider "aws" {
 }
 
 resource "aws_instance" "WebServer_Ubuntu" {
-  ami                    = "ami-0440e5026412ff23f"
+  ami                    = data.aws_ami.ubuntu.id
   instance_type          = "t3.micro"
   subnet_id              = aws_subnet.main_subnet.id
   vpc_security_group_ids = [aws_security_group.WebServer_Security_Group.id]
+  private_ip             = "10.0.1.5"
+  key_name               = "ssh-key1"
   user_data              = file("ScriptWebServer.sh")
 
   tags = {
@@ -16,11 +18,12 @@ resource "aws_instance" "WebServer_Ubuntu" {
 }
 
 resource "aws_instance" "Private_CentOS" {
-  ami                    = "ami-077b62cf33d29a995"
+  ami                    = data.aws_ami.centOS.id
   instance_type          = "t3.micro"
   subnet_id              = aws_subnet.database_subnet.id
-  vpc_security_group_ids = [aws_security_group.WebServer_Security_Group.id]
-
+  vpc_security_group_ids = [aws_security_group.Private_Security_Group.id]
+  private_ip             = "10.0.2.5"
+  key_name               = "ssh-key1"
 
   tags = {
     Name  = "Task3_Private_CentOS"
@@ -98,32 +101,20 @@ resource "aws_security_group" "WebServer_Security_Group" {
   tags = {
     Name = "WebServer SG"
   }
-  ingress {
-    from_port        = 80
-    to_port          = 80
-    protocol         = "tcp"
-    cidr_blocks      = ["0.0.0.0/0"]
-    ipv6_cidr_blocks = ["::/0"]
+  dynamic "ingress" {
+    for_each = ["80", "443", "22"]
+    content {
+      from_port   = ingress.value
+      to_port     = ingress.value
+      protocol    = "tcp"
+      cidr_blocks = ["0.0.0.0/0"]
+    }
   }
   ingress {
-    from_port        = 443
-    to_port          = 443
-    protocol         = "tcp"
-    cidr_blocks      = ["0.0.0.0/0"]
-    ipv6_cidr_blocks = ["::/0"]
-  }
-  ingress {
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
+    from_port   = -1
+    to_port     = -1
+    protocol    = "icmp"
     cidr_blocks = ["0.0.0.0/0"]
-  }
-  ingress {
-    from_port        = 0
-    to_port          = 0
-    protocol         = "icmp"
-    cidr_blocks      = ["0.0.0.0/0"]
-    ipv6_cidr_blocks = ["::/0"]
   }
   egress {
     from_port   = 0
@@ -131,4 +122,63 @@ resource "aws_security_group" "WebServer_Security_Group" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
+}
+
+resource "aws_security_group" "Private_Security_Group" {
+  name   = "Private Security Group"
+  vpc_id = aws_vpc.sandbox-VPC.id
+  tags = {
+    Name = "Private Server SG"
+  }
+
+  dynamic "ingress" {
+    for_each = ["80", "443", "22"]
+    content {
+      from_port   = ingress.value
+      to_port     = ingress.value
+      protocol    = "tcp"
+      cidr_blocks = ["10.0.1.5/32"]
+    }
+  }
+
+  dynamic "egress" {
+    for_each = ["80", "443", "22"]
+    content {
+      from_port   = egress.value
+      to_port     = egress.value
+      protocol    = "tcp"
+      cidr_blocks = ["10.0.1.5/32"]
+    }
+  }
+
+  ingress {
+    from_port   = -1
+    to_port     = -1
+    protocol    = "icmp"
+    cidr_blocks = ["10.0.1.5/32"]
+  }
+
+  egress {
+    from_port   = -1
+    to_port     = -1
+    protocol    = "icmp"
+    cidr_blocks = ["10.0.1.5/32"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
+resource "aws_key_pair" "ssh-key" {
+  key_name   = "ssh-key1"
+  public_key = file("../../id_rsa.pub")
+}
+
+output "instance_ip" {
+  description = "The public ip for ssh access"
+  value       = aws_instance.WebServer_Ubuntu.public_ip
 }
