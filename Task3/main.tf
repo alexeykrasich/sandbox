@@ -23,7 +23,7 @@ resource "aws_instance" "Private_CentOS" {
   subnet_id              = aws_subnet.database_subnet.id
   vpc_security_group_ids = [aws_security_group.Private_Security_Group.id]
   private_ip             = "10.0.2.5"
-  key_name               = "ssh-key1"
+  user_data              = file("ScriptWebServer.sh")
 
   tags = {
     Name  = "Task3_Private_CentOS"
