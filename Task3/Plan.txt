@@ -275,7 +275,7 @@ Terraform will perform the following actions:
       [32m+[0m [0m[1m[0mkey_name[0m[0m        = "ssh-key1"
       [32m+[0m [0m[1m[0mkey_name_prefix[0m[0m = (known after apply)
       [32m+[0m [0m[1m[0mkey_pair_id[0m[0m     = (known after apply)
-      [32m+[0m [0m[1m[0mpublic_key[0m[0m      = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCus5AUkyhggxaV1FVrSitYfxvOErL9/WrXVGCyJF9Byq8NAiEgUZ0+/exk/b89q9B0jZr0DCJ4c2/5jKi/BErg+IdyCcvIozNhTfzh6716QfLItzv4u9XTLFa1Gaf/spXlSiiIlak2mu7DlyWUeAyH2Esktji+bIx2pDrvI8FyuAvK5eyxPzOZCSKUHB4a6uoqOgLjpI7FxdhIBd/cCSIZiAOTfS3jh8HRx2MzEEXaWPg5+qugifwiu/8xv9YPnG19gjiDI+UNaFhWN5+gJDS+zGdnru05rHhwBgZdLa2dqtLF4wdkC/ZFu4zOEnA+9mfx0X0H4avT7JPH3qJlB6EePPXYTQmlQ4BfVgRuQa9LXw3ZNnkqZq40D0cRB9Ry1Ky0ZFTgG0SoRB8YsUfJXmhVVtWpi8hZRjlC0jL75g5Tt4TWcXduTbsAjtGXE39uesi03lGXMeKvU1+AR6INIkpqBR3mqgmkplYCxddm9L6X0dwc7z0PzMXsxaGJUnIZlhU= mesozoic@ubuntu"
+      [32m+[0m [0m[1m[0mpublic_key[0m[0m      = "***"
       [32m+[0m [0m[1m[0mtags_all[0m[0m        = (known after apply)
     }
 
