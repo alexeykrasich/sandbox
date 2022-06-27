@@ -51,7 +51,7 @@ On EC2 CentOS install nginx (note. Remember about step 7, the task can be done i
 
 --------------------------------------------
 Made NAT and Elastic IP for Private server to make its connected to the internet, chenged route table for private subnet, added there a route to NAT. Made a script for 
-changing files in terraform dir after applying to delete NAT, Eip and rout after installing the Nginx
+changing files in terraform dir to delete NAT after applying, Eip and rout after installing the Nginx
 ![image](https://user-images.githubusercontent.com/83491125/175936159-311585cc-8fb4-4cc9-bb43-b6c08dc93bd7.png)
 ![image](https://user-images.githubusercontent.com/83491125/175936230-46e83dfa-580f-45c1-9df3-ca69f4c90c1a.png)
 ![image](https://user-images.githubusercontent.com/83491125/175936303-9aa4b5bb-79a7-48f7-895a-3e5a16c99b06.png)
