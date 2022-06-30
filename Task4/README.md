@@ -47,4 +47,7 @@ Second container should be run right after a successful run of a database contai
 	EXTRA 5.1. Use env files to configure each service.
   
 --------------------------------------------------------
-Made 5 nodes on different ports, java image dapends on database, Used env files
+Made 5 nodes with Docker swarm, java image dapends on database, Used env files
+	
+![image](https://user-images.githubusercontent.com/83491125/176705271-dc6c4133-6ac6-40b7-923f-5ebf50308e50.png)
+![image](https://user-images.githubusercontent.com/83491125/176705544-7d4b5636-1f40-4489-b10c-7243d6175a35.png)
