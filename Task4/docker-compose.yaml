@@ -42,15 +42,15 @@ services:
     env_file:
     - variables.env
 
- # javaapp:
-  #  build: javadocker/
-   # depends_on:
-    #  - database
-    #restart: always
-   # ports:
-  #    - 7787:80
- #   env_file:
-#    - variables.env
+  javaapp:
+    build: javadocker/
+    depends_on:
+      - database
+    restart: always
+    ports:
+      - 7787:80
+    env_file:
+    - variables.env
 
   database:
     build: databasedocker/
