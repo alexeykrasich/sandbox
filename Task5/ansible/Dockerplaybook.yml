@@ -1,0 +1,11 @@
+---
+- name: Install Docker
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: Download Docker
+    yum: name=docker state=installed
+
+  - name: Enable docker
+    service: name=docker state=started enabled=no
