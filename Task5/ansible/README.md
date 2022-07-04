@@ -22,8 +22,10 @@ EXTRA 3. For the execution of playbooks, dynamic inventory must be used (GALAXY 
 -----------------------------------------------
 
 Started wordpress docker container via community.docker.docker_container, installed pip on master server
+
 Used vars AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
-Used dynamic inventory without host file
+
+Used dynamic inventory without host file, plagin in aws_ec2.yml takes every ec2 from eu-north-1 location. 
 
 ![image](https://user-images.githubusercontent.com/83491125/177149481-d7138b7f-bc1f-4fcd-b1cb-43bedfc19481.png)
 
