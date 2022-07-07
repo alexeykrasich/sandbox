@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Build docker image') {
             steps {
-                dir ('Task6') {
+                cd ('Task6') {
                 sh '''docker build . '''
                     
                 }
