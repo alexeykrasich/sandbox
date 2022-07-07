@@ -1,9 +1,10 @@
+properties([disableConsurrentBuilds()])
+
 pipeline {
     agent any
     stages {
         stage('Build docker image') {
             steps {
-                sh '''
                 dir ('Task6') {
                 sh 'docker build . '
                     
