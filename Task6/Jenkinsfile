@@ -1,11 +1,14 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Build docker image') {
             steps {
                 sh '''
-                docker-compose up -d
-                echo ''
+                dir ('Task6') {
+                sh 'docker build . '
+                    
+                }
+                
                 '''
             }
         }
