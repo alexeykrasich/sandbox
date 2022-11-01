@@ -1,5 +1,3 @@
-Зарегистрировался на AWS.
-Создал нового пользователя admin и группу administrators при помощи IAM
 Создал два EC2 сервера в консоли: amazon linux и ubuntu
 
 <h3>4. Make sure there is an SSH connection from your host to the created EC2. What IP EC2 used for it?</h3>
